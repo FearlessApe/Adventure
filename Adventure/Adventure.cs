@@ -20,13 +20,8 @@ namespace Adventure
         {
             InitializeComponent();
 
-            _player = new Player();
-
-            _player.CurrentHitPoints = 10;
-            _player.MaximumHitPoints = 10;
-            _player.Gold = 5;
-            _player.ExperiencePoints = 0;
-            _player.Level = 0;
+// Giving the player a set constructor of values. 
+            _player = new Player(10,10,5,0,0);
             
             // Text for the given Player stats.
 
