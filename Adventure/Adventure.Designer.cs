@@ -41,77 +41,85 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(18, 25);
+            label1.Location = new Point(23, 35);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(62, 15);
+            label1.Size = new Size(79, 21);
             label1.TabIndex = 0;
             label1.Text = "Hit Points:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(18, 50);
+            label2.Location = new Point(23, 70);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(35, 15);
+            label2.Size = new Size(46, 21);
             label2.TabIndex = 1;
             label2.Text = "Gold:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(18, 75);
+            label3.Location = new Point(23, 105);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(67, 15);
+            label3.Size = new Size(87, 21);
             label3.TabIndex = 2;
             label3.Text = "Experience:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(18, 100);
+            label4.Location = new Point(23, 140);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(37, 15);
+            label4.Size = new Size(49, 21);
             label4.TabIndex = 3;
             label4.Text = "Level:";
             // 
             // lblHitPoints
             // 
             lblHitPoints.AutoSize = true;
-            lblHitPoints.Location = new Point(110, 25);
+            lblHitPoints.Location = new Point(141, 35);
+            lblHitPoints.Margin = new Padding(4, 0, 4, 0);
             lblHitPoints.Name = "lblHitPoints";
-            lblHitPoints.Size = new Size(0, 15);
+            lblHitPoints.Size = new Size(0, 21);
             lblHitPoints.TabIndex = 4;
             // 
             // lblGold
             // 
             lblGold.AutoSize = true;
-            lblGold.Location = new Point(110, 50);
+            lblGold.Location = new Point(141, 70);
+            lblGold.Margin = new Padding(4, 0, 4, 0);
             lblGold.Name = "lblGold";
-            lblGold.Size = new Size(0, 15);
+            lblGold.Size = new Size(0, 21);
             lblGold.TabIndex = 5;
             // 
             // lblExperience
             // 
             lblExperience.AutoSize = true;
-            lblExperience.Location = new Point(110, 75);
+            lblExperience.Location = new Point(141, 105);
+            lblExperience.Margin = new Padding(4, 0, 4, 0);
             lblExperience.Name = "lblExperience";
-            lblExperience.Size = new Size(0, 15);
+            lblExperience.Size = new Size(0, 21);
             lblExperience.TabIndex = 6;
             // 
             // lblLevel
             // 
             lblLevel.AutoSize = true;
-            lblLevel.Location = new Point(110, 100);
+            lblLevel.Location = new Point(141, 140);
+            lblLevel.Margin = new Padding(4, 0, 4, 0);
             lblLevel.Name = "lblLevel";
-            lblLevel.Size = new Size(0, 15);
+            lblLevel.Size = new Size(0, 21);
             lblLevel.TabIndex = 7;
             lblLevel.Click += label5_Click;
             // 
             // Adventure
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(704, 651);
+            ClientSize = new Size(944, 681);
             Controls.Add(lblLevel);
             Controls.Add(lblExperience);
             Controls.Add(lblGold);
@@ -120,6 +128,8 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Margin = new Padding(4, 4, 4, 4);
             Name = "Adventure";
             Text = "Adventure";
             Load += Adventure_Load_1;

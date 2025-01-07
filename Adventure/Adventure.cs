@@ -1,14 +1,27 @@
+using System;
+using System.Collections;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Engine;
+
 namespace Adventure
 {
     public partial class Adventure : Form
     {
-            _player = new Player();
 
-            _player.CurrentHitPoints = 10;
-            _player.MaxHitpoitns = 10;
-            _player.Gold = 5;
-            _player.ExperiencePoints = 0;
-            _player.Level = 0;
+        private Player _player;
+
+        public Adventure()
+        {
+            InitializeComponent();
+
+// Giving the player a set constructor of values. 
+            _player = new Player(10,10,5,0,0);
             
             // Text for the given Player stats.
 
