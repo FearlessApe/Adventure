@@ -14,7 +14,7 @@ namespace Adventure
     public partial class Adventure : Form
     {
 
-        private Player _player;
+        public Player _player;
 
         public Adventure()
         {
