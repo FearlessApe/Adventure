@@ -44,7 +44,7 @@ namespace Engine
         public const int ITEM_ID_SPIDER_FANG = 8;
         public const int ITEM_ID_SPIDER_SILK = 9;
         public const int ITEM_ID_DRAGON_LORD_SKULL = 13;
-        public const int ITEM_ID_DRAGON_LORD_OF_DEMON_REALM_HAND = 14;
+        public const int ITEM_ID_LORD_OF_DEMON_REALM_HAND = 14;
 
         // =================== Healing items ==========================
 
@@ -54,5 +54,20 @@ namespace Engine
         // ================== MISC ITEMS =============================
 
         public const int ITEM_ID_ADVENTURER_PASS = 10;
+
+        //============================================================
+
+        // ================= Monster ==========================
+        public const int MONSTER_ID_RAT = 1;
+        public const int MONSTER_ID_SNAKE = 2;
+        public const int MONSTER_ID_GAINT_SPIDER = 3;
+        public const int MONSTER_ID_DRAGON = 4;
+        public const int MONSTER_ID_MAGICAN = 5;
+        public const int MONSTER_ID_LORD_OF_DEMON_REALM = 6;
+
+        //==================== QUEST ==============================
+
+
+
     }
 }
