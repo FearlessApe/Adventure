@@ -85,8 +85,8 @@ namespace Engine
         public const int LOCATION_ID_DEMON_CAVE = 8;
 
 
-        //============================ SPELLS====================================
-        // SPELLS EFFECT INDEX: 7
+        //============================ SPELLS EFFECT ====================================
+        // INDEX: 7
         public const int SPELL_EFFECT_ID_DAMAGE = 1;
         public const int SPELL_EFFECT_ID_HEAL = 2;
         public const int SPELL_EFFECT_ID_RAISE_HP = 3;
@@ -96,7 +96,16 @@ namespace Engine
         public const int SPELL_EFFECT_ID_INVISIBLE = 7;
 
 
-       
+        //====================== SPELLS ========================== 
+        //INDEX : 7
+        public const int SPELL_ID_FIREBALL = 1;
+        public const int SPELL_ID_FROSTICE = 2;
+        public const int SPELL_ID_TELEPORT = 3; 
+        public const int SPELL_ID_ENDURANCE = 4;
+        public const int SPELL_ID_HOLY_NOVA = 5;
+        public const int SPELL_ID_RESTORE_HEALTH = 6; 
+        public const int SPELL_ID_RESTORE_MANA = 7;
+
         static World()
         {
             PopulateItems();
