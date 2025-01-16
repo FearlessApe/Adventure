@@ -12,13 +12,10 @@ namespace Engine
     {
         public static readonly List<Item> Items = new List<Item>();
         public static readonly List<Monster> Monsters = new List<Monster>();
-        public static readonly List<Quest> Questions = new List<Quest>();
+        public static readonly List<Quest> Quests = new List<Quest>();
         public static readonly List<Location> Locations = new List<Location>();
         public static readonly List<Spell> Spells = new List<Spell>();
-        public static readonly List<Race> Races = new List<Race>();
-        public static readonly List<Buff> Buffs = new List<Buff>();
 
-        
 
         // Item index -> 21
 
@@ -68,8 +65,10 @@ namespace Engine
         public const int MONSTER_ID_LORD_OF_DEMON_REALM = 6;
 
         //==================== QUEST ==============================
+        //INDEX : 5
+
         public const int QUEST_ID_CLEAR_FIELD = 1;
-        public const int QUEST_ID_ALCHEMST_GARDEN = 2;
+        public const int QUEST_ID_ALCHEMIST_GARDEN = 2;
         public const int QUEST_ID_HIDDEN_CHEST = 3;
         public const int QUEST_ID_DRAGON_NEST = 4;
         public const int QUEST_ID_SLAY_THE_DEMON_LORD = 5;
@@ -100,10 +99,10 @@ namespace Engine
         //INDEX : 7
         public const int SPELL_ID_FIREBALL = 1;
         public const int SPELL_ID_FROSTICE = 2;
-        public const int SPELL_ID_TELEPORT = 3; 
+        public const int SPELL_ID_TELEPORT = 3;
         public const int SPELL_ID_ENDURANCE = 4;
         public const int SPELL_ID_HOLY_NOVA = 5;
-        public const int SPELL_ID_RESTORE_HEALTH = 6; 
+        public const int SPELL_ID_RESTORE_HEALTH = 6;
         public const int SPELL_ID_RESTORE_MANA = 7;
 
         static World()
@@ -111,7 +110,7 @@ namespace Engine
             PopulateItems();
             PopulateSpells();
             PopulateMonster();
-            PopulateQuest();
+            PopulateQuests();
             PopulateLocation();
         }
 
@@ -152,7 +151,7 @@ namespace Engine
             Items.Add(new Item(ITEM_ID_SNAKE_FANG, "Snake Fang", "Snake Fang"));
             Items.Add(new Item(ITEM_ID_SPIDER_SILK, "Spider Silk", "Spider Silk"));
             Items.Add(new Item(ITEM_ID_SPIDER_FANG, "Spider Fang", "Spider Fang"));
-            Items.Add(new Item(ITEM_ID_DRAGON_SKULL, "Dragon skull","Dragon Skull"));
+            Items.Add(new Item(ITEM_ID_DRAGON_SKULL, "Dragon skull", "Dragon Skull"));
             Items.Add(new Item(ITEM_ID_LORD_OF_DEMON_REALM_HAND, "Demon Realm Hand", "Demon Realm Hand"));
             Items.Add(new Item(ITEM_ID_LORD_OF_DEMON_REALM_SKULL, "Demon Realm Skull", "Demon Realm Skull"));
 
@@ -160,27 +159,64 @@ namespace Engine
 
         // =============================================
 
-        private static void PopulateMonster() 
+        private static void PopulateMonster()
         {
-            Monster Rat = new Monster(MONSTER_ID_RAT, "Rat", 5, 3, 10, 3, 3);
+            Monster Rat = new Monster(MONSTER_ID_RAT, "Rat", 5, 3, 10, 3, 3, 0, 0);
+            Rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_RAT_TAIL), 75, false));
+            Rat.LootTable.Add(new LootItem(ItemByID(ITEM_ID_PIECE_OF_FUR), 75, true));
 
-            Monster Snake = new Monster(MONSTER_ID_SNAKE, "Snake", 5, 3, 10, 3, 3);
+            Monster Snake = new Monster(MONSTER_ID_SNAKE, "Snake", 5, 3, 10, 3, 3, 0, 0);
 
-            Monster GiantSpider = new Monster(MONSTER_ID_GAINT_SPIDER, "Giant Spider", 20, 5, 40, 10, 10);
+            Monster GiantSpider = new Monster(MONSTER_ID_GAINT_SPIDER, "Giant Spider", 20, 5, 40, 10, 10, 0, 0);
 
-            Monster Dragon = new Monster(MONSTER_ID_DRAGON, "Dragon", 35, 50, 50, 25, 25);
+            Monster Dragon = new Monster(MONSTER_ID_DRAGON, "Dragon", 35, 50, 50, 25, 25, 35, 50);
 
-            Monster Magican = new Monster(MONSTER_ID_MAGICAN, "Magican", 5, 25, 150, 35, 35);
+            Monster Magican = new Monster(MONSTER_ID_MAGICAN, "Magican", 5, 25, 150, 35, 35, 50, 50);
 
-            Monster LordDemon = new Monster(MONSTER_ID_LORD_OF_DEMON_REALM, "Lord of Demon Realm", 150, 500, 1000, 100, 100);
+            Monster LordDemon = new Monster(MONSTER_ID_LORD_OF_DEMON_REALM, "Lord of Demon Realm", 150, 500, 1000, 100, 100, 50, 150);
 
         }
 
         // =============================================
 
-        private static void PopulateQuest()
+        private static void PopulateQuests()
         {
+            // ==================== Alchemist Garden ========================================
+            Quest clearAlchemistGarden =
+                new Quest(
+                QUEST_ID_ALCHEMIST_GARDEN, 
+                "Clear the Alchemist's Garden",
+                "Kill the rats in the Alchemist graden and bring back 4 rat tails. You will receive a healing potion and 10 gold coins.", 20, 10);
+            clearAlchemistGarden.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_RAT_TAIL), 4));
+            clearAlchemistGarden.RewardItem = ItemByID(ITEM_ID_HEALING_POTION);
+            // ==============================================================================
 
+            // ===================== Open Field Quest =======================================
+            Quest clearOpenField =
+                new Quest(
+                    QUEST_ID_CLEAR_FIELD,
+                    "Clear the farmer's field",
+                    "Kill the snakes in the farmer's field and bring back 4 snake fangs. You will receive an adventuer's pass and 20 gold coins.", 20, 20);
+            clearOpenField.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_SNAKE_FANG), 4));
+            clearOpenField.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_SNAKESKIN), 2));
+            clearOpenField.RewardItem = ItemByID(ITEM_ID_ADVENTURER_PASS);
+            // ==============================================================================
+
+            // ====================== Hidden Chest Quest ==========================================
+            Quest findHiddenChest =
+                new Quest(
+                    QUEST_ID_HIDDEN_CHEST,
+                    "Find the hidden chest",
+                    "There are rumors of hidden treasures somewhere, I need to find it", 
+                    30, 
+                    100, 
+                    ItemByID(ITEM_ID_OATHBREAKER_SWORD));
+            findHiddenChest.QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(ITEM_ID_LORD_OF_DEMON_REALM_HAND), 1));
+
+
+            Quests.Add(clearAlchemistGarden);
+            Quests.Add(clearOpenField);
+            Quests.Add(findHiddenChest);
         }
 
         // =============================================
@@ -191,6 +227,54 @@ namespace Engine
         }
 
         // =============================================
+
+        public static Item ItemByID(int id)
+        {
+            foreach (Item item in Items)
+            {
+                if (item.ID == id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public static Monster MonsterByID(int id)
+        {
+            foreach (Monster monster in Monsters)
+            {
+                if(monster.ID == id)
+                {
+                    return monster;
+                }
+            }
+            return null;
+        }
+
+        public static Quest QuestByID(int id)
+        {
+            foreach(Quest quest in Quests)
+            {
+                if(quest.ID == id)
+                {
+                    return quest;
+                }
+            }
+            return null;
+        }
+
+        public static Location LocationByID(int id)
+        {
+            foreach(Location location in Locations)
+            {
+                if(location.ID == id)
+                {
+                    return location;
+                }
+            }
+            return null;
+        }
 
     }
 }

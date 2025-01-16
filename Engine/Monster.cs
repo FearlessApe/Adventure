@@ -14,19 +14,23 @@ namespace Engine
 
         public int MaximumDamage { get; set; }
 
+        public int MaximumMana { get; set; }
+
         public int RewardExperiencePoints { get; set; }
 
         public int RewardGold {  get; set; }
 
         public List<LootItem> LootTable { get; set; }
 
-        public Monster(int id, string name, int maximumDamage, int rewardExperiencePoints, int rewardGold, int currentHitPoints, int maximumHitPoints) 
-            : base(currentHitPoints,maximumHitPoints)
+        public Monster(int id, string name, int maximumDamage, int rewardExperiencePoints, int rewardGold, 
+            int currentHitPoints, int maximumHitPoints, int currentMana, int maximumMana) 
+            : base(currentHitPoints,maximumHitPoints, currentMana, maximumMana)
         {
 
             ID = id;
             Name = name;
             MaximumDamage = maximumDamage;
+            MaximumMana = maximumMana;
             RewardExperiencePoints = rewardExperiencePoints;
             RewardGold = rewardGold;
             LootTable = new List<LootItem>();
