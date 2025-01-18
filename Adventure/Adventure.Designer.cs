@@ -36,6 +36,9 @@
             lblGold = new Label();
             lblExperience = new Label();
             lblLevel = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -115,11 +118,44 @@
             lblLevel.TabIndex = 7;
             lblLevel.Click += label5_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(20, 182);
+            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(52, 21);
+            label5.TabIndex = 8;
+            label5.Text = "Mana:";
+            label5.Click += label5_Click_1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(0, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(52, 21);
+            label6.TabIndex = 9;
+            label6.Text = "label6";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(24, 168);
+            label7.Name = "label7";
+            label7.Size = new Size(52, 21);
+            label7.TabIndex = 10;
+            label7.Text = "label7";
+            label7.Click += label7_Click;
+            // 
             // Adventure
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 681);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
             Controls.Add(lblLevel);
             Controls.Add(lblExperience);
             Controls.Add(lblGold);
@@ -129,7 +165,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Adventure";
             Text = "Adventure";
             Load += Adventure_Load_1;
@@ -143,9 +179,13 @@
         private Label label2;
         private Label label3;
         private Label label4;
+        private Label label5;
         private Label lblHitPoints;
         private Label lblGold;
         private Label lblExperience;
         private Label lblLevel;
+        private Label lblMana;
+        private Label label6;
+        private Label label7;
     }
 }

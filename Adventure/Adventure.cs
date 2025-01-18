@@ -20,17 +20,18 @@ namespace Adventure
         {
             InitializeComponent();
 
-// Giving the player a set constructor of values. 
-            _player = new Player(10,10,5,0,0);
-            
+            // Giving the player a set constructor of values. 
+            _player = new Player(10, 10, 5, 0, 5, 5, 0);
+
             // Text for the given Player stats.
 
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
             lblGold.Text = _player.Gold.ToString();
             lblExperience.Text = _player.ExperiencePoints.ToString();
+            lblMana.Text = _player.Mana.ToString();
             lblLevel.Text = _player.Level.ToString();
 
-                
+
         }
 
         private void Adventure_Load(object sender, EventArgs e)
@@ -48,6 +49,5 @@ namespace Adventure
 
         }
 
-       
     }
 }

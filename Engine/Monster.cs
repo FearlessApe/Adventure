@@ -14,8 +14,6 @@ namespace Engine
 
         public int MaximumDamage { get; set; }
 
-        public int MaximumMana { get; set; }
-
         public int RewardExperiencePoints { get; set; }
 
         public int RewardGold {  get; set; }
@@ -30,7 +28,6 @@ namespace Engine
             ID = id;
             Name = name;
             MaximumDamage = maximumDamage;
-            MaximumMana = maximumMana;
             RewardExperiencePoints = rewardExperiencePoints;
             RewardGold = rewardGold;
             LootTable = new List<LootItem>();
